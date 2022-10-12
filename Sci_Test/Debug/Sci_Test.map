@@ -1,0 +1,476 @@
+******************************************************************************
+             TMS320C2000 Linker PC v21.6.0                     
+******************************************************************************
+>> Linked Thu Sep 29 20:09:29 2022
+
+OUTPUT FILE NAME:   <Sci_Test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000089f4
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  BEGIN                 00000000   00000002  00000000  00000002  RWIX
+  RAMM0                 00000050   000003b0  0000001e  00000392  RWIX
+  RAML0_L3              00008000   00002000  00000ad2  0000152e  RWIX
+  FPUTABLES             003fd860   000006a0  00000000  000006a0  RWIX
+  IQTABLES              003fdf00   00000b50  00000000  00000b50  RWIX
+  IQTABLES2             003fea50   0000008c  00000000  0000008c  RWIX
+  IQTABLES3             003feadc   000000aa  00000000  000000aa  RWIX
+  BOOTROM               003ff3b0   00000c10  00000000  00000c10  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+PAGE 1:
+  BOOT_RSVD             00000002   0000004e  00000000  0000004e  RWIX
+  RAMM1                 00000400   00000400  00000400  00000000  RWIX
+  RAML4                 0000a000   00002000  0000012a  00001ed6  RWIX
+  RAML5                 0000c000   00002000  00000000  00002000  RWIX
+  RAML6                 0000e000   00002000  00000000  00002000  RWIX
+  RAML7                 00010000   00002000  00000000  00002000  RWIX
+  RAML8                 00012000   00002000  00000000  00002000  RWIX
+  USB_RAM               00040000   00000800  00000000  00000800  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cinit     0    00000050    0000001e     
+                  00000050    0000000e     rts2800_fpu32.lib : exit.c.obj (.cinit)
+                  0000005e    00000005                       : _lock.c.obj (.cinit:__lock)
+                  00000063    00000005                       : _lock.c.obj (.cinit:__unlock)
+                  00000068    00000004                       : errno.c.obj (.cinit)
+                  0000006c    00000002     --HOLE-- [fill = 0]
+
+.text      0    00008000    00000ad2     
+                  00008000    0000031d     clk.obj (.text)
+                  0000831d    00000314     gpio.obj (.text)
+                  00008631    00000289     sci.obj (.text)
+                  000088ba    000000d3     rts2800_fpu32.lib : strtol.c.obj (.text)
+                  0000898d    00000067     main.obj (.text)
+                  000089f4    00000056     rts2800_fpu32.lib : boot28.asm.obj (.text)
+                  00008a4a    00000029                       : exit.c.obj (.text)
+                  00008a73    00000024                       : cpy_tbl.c.obj (.text)
+                  00008a97    0000001d                       : memcpy.c.obj (.text)
+                  00008ab4    00000012                       : args_main.c.obj (.text)
+                  00008ac6    00000009                       : _lock.c.obj (.text)
+                  00008acf    00000002                       : pre_init.c.obj (.text)
+                  00008ad1    00000001                       : startup.c.obj (.text)
+
+.pinit     0    00000050    00000000     UNINITIALIZED
+
+.reset     0    003fffc0    00000002     DSECT
+                  003fffc0    00000002     rts2800_fpu32.lib : boot28.asm.obj (.reset)
+
+.stack     1    00000400    00000400     UNINITIALIZED
+                  00000400    00000400     --HOLE--
+
+.econst    1    0000a000    0000011f     
+                  0000a000    00000101     rts2800_fpu32.lib : ctype.c.obj (.econst:.string:__ctypes_)
+                  0000a101    0000001e     main.obj (.econst:.string:_$P$T0$1)
+
+.ebss      1    0000a120    0000000b     UNINITIALIZED
+                  0000a120    00000006     rts2800_fpu32.lib : exit.c.obj (.ebss)
+                  0000a126    00000002                       : _lock.c.obj (.ebss:__lock)
+                  0000a128    00000002                       : _lock.c.obj (.ebss:__unlock)
+                  0000a12a    00000001                       : errno.c.obj (.ebss)
+
+MODULE SUMMARY
+
+       Module            code   initialized data   uninitialized data
+       ------            ----   ----------------   ------------------
+    .\
+       clk.obj           797    0                  0                 
+       gpio.obj          788    0                  0                 
+       sci.obj           649    0                  0                 
+       main.obj          103    30                 0                 
+    +--+-----------------+------+------------------+--------------------+
+       Total:            2337   30                 0                 
+                                                                     
+    C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-c2000_21.6.0.LTS\lib\rts2800_fpu32.lib
+       ctype.c.obj       0      257                0                 
+       strtol.c.obj      211    0                  0                 
+       boot28.asm.obj    86     0                  0                 
+       exit.c.obj        41     14                 6                 
+       cpy_tbl.c.obj     36     0                  0                 
+       memcpy.c.obj      29     0                  0                 
+       _lock.c.obj       9      10                 4                 
+       args_main.c.obj   18     0                  0                 
+       errno.c.obj       0      4                  1                 
+       pre_init.c.obj    2      0                  0                 
+       startup.c.obj     1      0                  0                 
+    +--+-----------------+------+------------------+--------------------+
+       Total:            433    285                11                
+                                                                     
+       Stack:            0      0                  1024              
+    +--+-----------------+------+------------------+--------------------+
+       Grand Total:      2770   315                1035              
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+0000a000     280 (0000a000)     __ctypes_
+
+0000a120     284 (0000a100)     ___TI_enable_exit_profile_output
+0000a122     284 (0000a100)     ___TI_cleanup_ptr
+0000a124     284 (0000a100)     ___TI_dtors_ptr
+0000a126     284 (0000a100)     __lock
+0000a128     284 (0000a100)     __unlock
+0000a12a     284 (0000a100)     _errno
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+page  address   name                            
+----  -------   ----                            
+0     00008000  .text                           
+0     00008a4a  C$$EXIT                         
+0     00008000  _CLK_disableAdcClock            
+0     0000800e  _CLK_disableClaClock            
+0     0000801c  _CLK_disableClkIn               
+0     00008027  _CLK_disableCompClock           
+0     00008034  _CLK_disableCpuTimerClock       
+0     00008044  _CLK_disableCrystalOsc          
+0     0000804f  _CLK_disableEcanaClock          
+0     0000805d  _CLK_disableEcap1Clock          
+0     0000806b  _CLK_disableEqep1Clock          
+0     00008079  _CLK_disableEqep2Clock          
+0     00008087  _CLK_disableGpioInputClock      
+0     00008095  _CLK_disableHrPwmClock          
+0     000080a3  _CLK_disableI2cClock            
+0     000080b1  _CLK_disableLinAClock           
+0     000080bf  _CLK_disableOsc1                
+0     000080ca  _CLK_disableOsc1HaltMode        
+0     000080d5  _CLK_disableOsc2                
+0     000080e0  _CLK_disableOsc2HaltMode        
+0     000080eb  _CLK_disablePwmClock            
+0     000080fd  _CLK_disableSciaClock           
+0     0000810b  _CLK_disableScibClock           
+0     00008119  _CLK_disableSpiaClock           
+0     00008127  _CLK_disableSpibClock           
+0     00008132  _CLK_disableTbClockSync         
+0     00008140  _CLK_disableWatchDogHaltMode    
+0     0000814b  _CLK_enableAdcClock             
+0     00008159  _CLK_enableClaClock             
+0     000081c8  _CLK_enableClkIn                
+0     00008167  _CLK_enableCompClock            
+0     00008176  _CLK_enableCpuTimerClock        
+0     00008185  _CLK_enableCrystalOsc           
+0     00008190  _CLK_enableEcanaClock           
+0     000081ba  _CLK_enableEcap1Clock           
+0     0000819e  _CLK_enableEqep1Clock           
+0     000081ac  _CLK_enableEqep2Clock           
+0     000081d3  _CLK_enableGpioInputClock       
+0     000081e1  _CLK_enableHrPwmClock           
+0     000081ef  _CLK_enableI2cClock             
+0     000081fd  _CLK_enableLinAClock            
+0     0000820b  _CLK_enableOsc1                 
+0     00008216  _CLK_enableOsc1HaltMode         
+0     00008221  _CLK_enableOsc2                 
+0     0000822c  _CLK_enableOsc2HaltMode         
+0     00008237  _CLK_enablePwmClock             
+0     00008248  _CLK_enableSciaClock            
+0     00008256  _CLK_enableScibClock            
+0     00008264  _CLK_enableSpiaClock            
+0     00008272  _CLK_enableSpibClock            
+0     00008280  _CLK_enableTbClockSync          
+0     0000828e  _CLK_enableWatchDogHaltMode     
+0     00008299  _CLK_init                       
+0     000082a5  _CLK_setClkOutPreScaler         
+0     000082b4  _CLK_setLowSpdPreScaler         
+0     000082d2  _CLK_setOsc2Src                 
+0     000082c3  _CLK_setOscSrc                  
+0     000082f0  _CLK_setTimer2PreScale          
+0     000082ff  _CLK_setTimer2Src               
+0     0000830e  _CLK_setWatchDogSrc             
+0     000082e1  _CLK_setXClkInSrc               
+0     0000831d  _GPIO_getData                   
+0     00008340  _GPIO_getPortData               
+0     00008356  _GPIO_init                      
+0     0000861f  _GPIO_lpmSelect                 
+0     000083de  _GPIO_read                      
+0     00008397  _GPIO_setDirection              
+0     000083cc  _GPIO_setExtInt                 
+0     0000840b  _GPIO_setHigh                   
+0     0000842b  _GPIO_setLow                    
+0     0000844b  _GPIO_setMode                   
+0     000084bc  _GPIO_setPortData               
+0     00008362  _GPIO_setPullup                 
+0     000084d6  _GPIO_setQualification          
+0     00008565  _GPIO_setQualificationPeriod    
+0     000085ff  _GPIO_toggle                    
+0     00008651  _SCI_clearAutoBaudDetect        
+0     00008667  _SCI_clearRxFifoInt             
+0     0000865c  _SCI_clearRxFifoOvf             
+0     00008672  _SCI_clearTxFifoInt             
+0     0000867d  _SCI_disable                    
+0     00008685  _SCI_disableAutoBaudAlign       
+0     00008690  _SCI_disableLoopBack            
+0     00008698  _SCI_disableParity              
+0     000086a0  _SCI_disableRx                  
+0     000086a8  _SCI_disableRxErrorInt          
+0     000086b0  _SCI_disableRxFifoInt           
+0     000086bb  _SCI_disableRxInt               
+0     000086c3  _SCI_disableSleep               
+0     000086cb  _SCI_disableTx                  
+0     000086d3  _SCI_disableTxFifoEnh           
+0     000086de  _SCI_disableTxFifoInt           
+0     000086e9  _SCI_disableTxInt               
+0     000086f1  _SCI_disableTxWake              
+0     000086f9  _SCI_enable                     
+0     00008701  _SCI_enableAutoBaudAlign        
+0     0000870c  _SCI_enableChannels             
+0     00008717  _SCI_enableLoopBack             
+0     0000871f  _SCI_enableParity               
+0     00008727  _SCI_enableRx                   
+0     0000872f  _SCI_enableRxErrorInt           
+0     00008747  _SCI_enableRxFifo               
+0     00008752  _SCI_enableRxFifoInt            
+0     00008737  _SCI_enableRxInt                
+0     0000873f  _SCI_enableSleep                
+0     0000875d  _SCI_enableTx                   
+0     00008765  _SCI_enableTxFifo               
+0     00008770  _SCI_enableTxFifoEnh            
+0     0000877b  _SCI_enableTxFifoInt            
+0     00008786  _SCI_enableTxInt                
+0     0000878e  _SCI_enableTxWake               
+0     00008796  _SCI_getDataBlocking            
+0     000087a3  _SCI_getDataNonBlocking         
+0     000087b7  _SCI_getRxFifoStatus            
+0     000087c3  _SCI_getTxFifoStatus            
+0     000087cf  _SCI_init                       
+0     000087db  _SCI_putDataBlocking            
+0     000087ec  _SCI_putDataNonBlocking         
+0     000087ff  _SCI_reset                      
+0     00008807  _SCI_resetChannels              
+0     00008819  _SCI_resetRxFifo                
+0     0000882b  _SCI_resetTxFifo                
+0     0000883d  _SCI_setBaudRate                
+0     0000884b  _SCI_setCharLength              
+0     00008857  _SCI_setMode                    
+0     00008863  _SCI_setNumStopBits             
+0     0000887b  _SCI_setParity                  
+0     0000886f  _SCI_setPriority                
+0     00008898  _SCI_setRxFifoIntLevel          
+0     00008887  _SCI_setTxDelay                 
+0     000088a9  _SCI_setTxFifoIntLevel          
+1     00000800  __STACK_END                     
+abs   00000400  __STACK_SIZE                    
+1     0000a122  ___TI_cleanup_ptr               
+1     0000a124  ___TI_dtors_ptr                 
+1     0000a120  ___TI_enable_exit_profile_output
+abs   ffffffff  ___TI_pprof_out_hndl            
+abs   ffffffff  ___TI_prof_data_size            
+abs   ffffffff  ___TI_prof_data_start           
+abs   ffffffff  ___binit__                      
+abs   ffffffff  ___c_args__                     
+0     00000050  ___cinit__                      
+0     00008ad2  ___etext__                      
+abs   ffffffff  ___pinit__                      
+0     00008000  ___text__                       
+0     00008ab4  __args_main                     
+1     0000a000  __ctypes_                       
+1     0000a126  __lock                          
+0     00008ace  __nop                           
+0     00008aca  __register_lock                 
+0     00008ac6  __register_unlock               
+1     00000400  __stack                         
+0     00008ad1  __system_post_cinit             
+0     00008acf  __system_pre_init               
+1     0000a128  __unlock                        
+0     00008a4a  _abort                          
+0     000089f4  _c_int00                        
+0     00008a73  _copy_in                        
+1     0000a12a  _errno                          
+0     00008a4c  _exit                           
+0     00008999  _main                           
+0     00008a97  _memcpy                         
+0     000089d2  _setupSciA                      
+0     000088ba  _strtol                         
+abs   ffffffff  binit                           
+0     00000050  cinit                           
+0     00008ad2  etext                           
+abs   ffffffff  pinit                           
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+page  address   name                            
+----  -------   ----                            
+0     00000050  ___cinit__                      
+0     00000050  cinit                           
+0     00008000  .text                           
+0     00008000  _CLK_disableAdcClock            
+0     00008000  ___text__                       
+0     0000800e  _CLK_disableClaClock            
+0     0000801c  _CLK_disableClkIn               
+0     00008027  _CLK_disableCompClock           
+0     00008034  _CLK_disableCpuTimerClock       
+0     00008044  _CLK_disableCrystalOsc          
+0     0000804f  _CLK_disableEcanaClock          
+0     0000805d  _CLK_disableEcap1Clock          
+0     0000806b  _CLK_disableEqep1Clock          
+0     00008079  _CLK_disableEqep2Clock          
+0     00008087  _CLK_disableGpioInputClock      
+0     00008095  _CLK_disableHrPwmClock          
+0     000080a3  _CLK_disableI2cClock            
+0     000080b1  _CLK_disableLinAClock           
+0     000080bf  _CLK_disableOsc1                
+0     000080ca  _CLK_disableOsc1HaltMode        
+0     000080d5  _CLK_disableOsc2                
+0     000080e0  _CLK_disableOsc2HaltMode        
+0     000080eb  _CLK_disablePwmClock            
+0     000080fd  _CLK_disableSciaClock           
+0     0000810b  _CLK_disableScibClock           
+0     00008119  _CLK_disableSpiaClock           
+0     00008127  _CLK_disableSpibClock           
+0     00008132  _CLK_disableTbClockSync         
+0     00008140  _CLK_disableWatchDogHaltMode    
+0     0000814b  _CLK_enableAdcClock             
+0     00008159  _CLK_enableClaClock             
+0     00008167  _CLK_enableCompClock            
+0     00008176  _CLK_enableCpuTimerClock        
+0     00008185  _CLK_enableCrystalOsc           
+0     00008190  _CLK_enableEcanaClock           
+0     0000819e  _CLK_enableEqep1Clock           
+0     000081ac  _CLK_enableEqep2Clock           
+0     000081ba  _CLK_enableEcap1Clock           
+0     000081c8  _CLK_enableClkIn                
+0     000081d3  _CLK_enableGpioInputClock       
+0     000081e1  _CLK_enableHrPwmClock           
+0     000081ef  _CLK_enableI2cClock             
+0     000081fd  _CLK_enableLinAClock            
+0     0000820b  _CLK_enableOsc1                 
+0     00008216  _CLK_enableOsc1HaltMode         
+0     00008221  _CLK_enableOsc2                 
+0     0000822c  _CLK_enableOsc2HaltMode         
+0     00008237  _CLK_enablePwmClock             
+0     00008248  _CLK_enableSciaClock            
+0     00008256  _CLK_enableScibClock            
+0     00008264  _CLK_enableSpiaClock            
+0     00008272  _CLK_enableSpibClock            
+0     00008280  _CLK_enableTbClockSync          
+0     0000828e  _CLK_enableWatchDogHaltMode     
+0     00008299  _CLK_init                       
+0     000082a5  _CLK_setClkOutPreScaler         
+0     000082b4  _CLK_setLowSpdPreScaler         
+0     000082c3  _CLK_setOscSrc                  
+0     000082d2  _CLK_setOsc2Src                 
+0     000082e1  _CLK_setXClkInSrc               
+0     000082f0  _CLK_setTimer2PreScale          
+0     000082ff  _CLK_setTimer2Src               
+0     0000830e  _CLK_setWatchDogSrc             
+0     0000831d  _GPIO_getData                   
+0     00008340  _GPIO_getPortData               
+0     00008356  _GPIO_init                      
+0     00008362  _GPIO_setPullup                 
+0     00008397  _GPIO_setDirection              
+0     000083cc  _GPIO_setExtInt                 
+0     000083de  _GPIO_read                      
+0     0000840b  _GPIO_setHigh                   
+0     0000842b  _GPIO_setLow                    
+0     0000844b  _GPIO_setMode                   
+0     000084bc  _GPIO_setPortData               
+0     000084d6  _GPIO_setQualification          
+0     00008565  _GPIO_setQualificationPeriod    
+0     000085ff  _GPIO_toggle                    
+0     0000861f  _GPIO_lpmSelect                 
+0     00008651  _SCI_clearAutoBaudDetect        
+0     0000865c  _SCI_clearRxFifoOvf             
+0     00008667  _SCI_clearRxFifoInt             
+0     00008672  _SCI_clearTxFifoInt             
+0     0000867d  _SCI_disable                    
+0     00008685  _SCI_disableAutoBaudAlign       
+0     00008690  _SCI_disableLoopBack            
+0     00008698  _SCI_disableParity              
+0     000086a0  _SCI_disableRx                  
+0     000086a8  _SCI_disableRxErrorInt          
+0     000086b0  _SCI_disableRxFifoInt           
+0     000086bb  _SCI_disableRxInt               
+0     000086c3  _SCI_disableSleep               
+0     000086cb  _SCI_disableTx                  
+0     000086d3  _SCI_disableTxFifoEnh           
+0     000086de  _SCI_disableTxFifoInt           
+0     000086e9  _SCI_disableTxInt               
+0     000086f1  _SCI_disableTxWake              
+0     000086f9  _SCI_enable                     
+0     00008701  _SCI_enableAutoBaudAlign        
+0     0000870c  _SCI_enableChannels             
+0     00008717  _SCI_enableLoopBack             
+0     0000871f  _SCI_enableParity               
+0     00008727  _SCI_enableRx                   
+0     0000872f  _SCI_enableRxErrorInt           
+0     00008737  _SCI_enableRxInt                
+0     0000873f  _SCI_enableSleep                
+0     00008747  _SCI_enableRxFifo               
+0     00008752  _SCI_enableRxFifoInt            
+0     0000875d  _SCI_enableTx                   
+0     00008765  _SCI_enableTxFifo               
+0     00008770  _SCI_enableTxFifoEnh            
+0     0000877b  _SCI_enableTxFifoInt            
+0     00008786  _SCI_enableTxInt                
+0     0000878e  _SCI_enableTxWake               
+0     00008796  _SCI_getDataBlocking            
+0     000087a3  _SCI_getDataNonBlocking         
+0     000087b7  _SCI_getRxFifoStatus            
+0     000087c3  _SCI_getTxFifoStatus            
+0     000087cf  _SCI_init                       
+0     000087db  _SCI_putDataBlocking            
+0     000087ec  _SCI_putDataNonBlocking         
+0     000087ff  _SCI_reset                      
+0     00008807  _SCI_resetChannels              
+0     00008819  _SCI_resetRxFifo                
+0     0000882b  _SCI_resetTxFifo                
+0     0000883d  _SCI_setBaudRate                
+0     0000884b  _SCI_setCharLength              
+0     00008857  _SCI_setMode                    
+0     00008863  _SCI_setNumStopBits             
+0     0000886f  _SCI_setPriority                
+0     0000887b  _SCI_setParity                  
+0     00008887  _SCI_setTxDelay                 
+0     00008898  _SCI_setRxFifoIntLevel          
+0     000088a9  _SCI_setTxFifoIntLevel          
+0     000088ba  _strtol                         
+0     00008999  _main                           
+0     000089d2  _setupSciA                      
+0     000089f4  _c_int00                        
+0     00008a4a  C$$EXIT                         
+0     00008a4a  _abort                          
+0     00008a4c  _exit                           
+0     00008a73  _copy_in                        
+0     00008a97  _memcpy                         
+0     00008ab4  __args_main                     
+0     00008ac6  __register_unlock               
+0     00008aca  __register_lock                 
+0     00008ace  __nop                           
+0     00008acf  __system_pre_init               
+0     00008ad1  __system_post_cinit             
+0     00008ad2  ___etext__                      
+0     00008ad2  etext                           
+1     00000400  __stack                         
+1     00000800  __STACK_END                     
+1     0000a000  __ctypes_                       
+1     0000a120  ___TI_enable_exit_profile_output
+1     0000a122  ___TI_cleanup_ptr               
+1     0000a124  ___TI_dtors_ptr                 
+1     0000a126  __lock                          
+1     0000a128  __unlock                        
+1     0000a12a  _errno                          
+abs   00000400  __STACK_SIZE                    
+abs   ffffffff  ___TI_pprof_out_hndl            
+abs   ffffffff  ___TI_prof_data_size            
+abs   ffffffff  ___TI_prof_data_start           
+abs   ffffffff  ___binit__                      
+abs   ffffffff  ___c_args__                     
+abs   ffffffff  ___pinit__                      
+abs   ffffffff  binit                           
+abs   ffffffff  pinit                           
+
+[168 symbols]

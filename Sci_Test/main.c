@@ -41,8 +41,10 @@ int main(void)
 
     ret = strtol(str, &ptr, 10);
 
+    uint16_t number16 = 0xFFFF;
+
     for(;;) {
-        SCI_write(sciAHandle, 71);
+        SCI_write(sciAHandle, number16);
     }
 }
 

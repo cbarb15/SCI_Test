@@ -1,1 +1,1 @@
-"./clk.obj" "./gpio.obj" "./main.obj" "./sci.obj" "../28069_RAM_lnk.cmd" -llibc.a 
+"./adc.obj" "./clk.obj" "./gpio.obj" "./main.obj" "./osc.obj" "./pll.obj" "./sci.obj" "./wdog.obj" "../28069_RAM_lnk.cmd" -llibc.a 

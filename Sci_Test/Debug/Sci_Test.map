@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v21.6.0                     
 ******************************************************************************
->> Linked Thu Sep 29 20:09:29 2022
+>> Linked Sat Nov 12 18:16:26 2022
 
 OUTPUT FILE NAME:   <Sci_Test.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 000089f4
+ENTRY POINT SYMBOL: "_c_int00"  address: 00008e4c
 
 
 MEMORY CONFIGURATION
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 PAGE 0:
   BEGIN                 00000000   00000002  00000000  00000002  RWIX
   RAMM0                 00000050   000003b0  0000001e  00000392  RWIX
-  RAML0_L3              00008000   00002000  00000ad2  0000152e  RWIX
+  RAML0_L3              00008000   00002000  00000f7d  00001083  RWIX
   FPUTABLES             003fd860   000006a0  00000000  000006a0  RWIX
   IQTABLES              003fdf00   00000b50  00000000  00000b50  RWIX
   IQTABLES2             003fea50   0000008c  00000000  0000008c  RWIX
@@ -45,20 +45,24 @@ section   page    origin      length       input sections
                   00000068    00000004                       : errno.c.obj (.cinit)
                   0000006c    00000002     --HOLE-- [fill = 0]
 
-.text      0    00008000    00000ad2     
+.text      0    00008000    00000f7d     
                   00008000    0000031d     clk.obj (.text)
                   0000831d    00000314     gpio.obj (.text)
-                  00008631    00000289     sci.obj (.text)
-                  000088ba    000000d3     rts2800_fpu32.lib : strtol.c.obj (.text)
-                  0000898d    00000067     main.obj (.text)
-                  000089f4    00000056     rts2800_fpu32.lib : boot28.asm.obj (.text)
-                  00008a4a    00000029                       : exit.c.obj (.text)
-                  00008a73    00000024                       : cpy_tbl.c.obj (.text)
-                  00008a97    0000001d                       : memcpy.c.obj (.text)
-                  00008ab4    00000012                       : args_main.c.obj (.text)
-                  00008ac6    00000009                       : _lock.c.obj (.text)
-                  00008acf    00000002                       : pre_init.c.obj (.text)
-                  00008ad1    00000001                       : startup.c.obj (.text)
+                  00008631    000002e2     adc.obj (.text)
+                  00008913    00000289     sci.obj (.text)
+                  00008b9c    000000d3     rts2800_fpu32.lib : strtol.c.obj (.text)
+                  00008c6f    000000c0     pll.obj (.text)
+                  00008d2f    00000092     main.obj (.text)
+                  00008dc1    0000008b     wdog.obj (.text)
+                  00008e4c    00000056     rts2800_fpu32.lib : boot28.asm.obj (.text)
+                  00008ea2    00000053     osc.obj (.text)
+                  00008ef5    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
+                  00008f1e    00000024                       : cpy_tbl.c.obj (.text)
+                  00008f42    0000001d                       : memcpy.c.obj (.text)
+                  00008f5f    00000012                       : args_main.c.obj (.text)
+                  00008f71    00000009                       : _lock.c.obj (.text)
+                  00008f7a    00000002                       : pre_init.c.obj (.text)
+                  00008f7c    00000001                       : startup.c.obj (.text)
 
 .pinit     0    00000050    00000000     UNINITIALIZED
 
@@ -85,10 +89,14 @@ MODULE SUMMARY
     .\
        clk.obj           797    0                  0                 
        gpio.obj          788    0                  0                 
+       adc.obj           738    0                  0                 
        sci.obj           649    0                  0                 
-       main.obj          103    30                 0                 
+       pll.obj           192    0                  0                 
+       main.obj          146    30                 0                 
+       wdog.obj          139    0                  0                 
+       osc.obj           83     0                  0                 
     +--+-----------------+------+------------------+--------------------+
-       Total:            2337   30                 0                 
+       Total:            3532   30                 0                 
                                                                      
     C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-c2000_21.6.0.LTS\lib\rts2800_fpu32.lib
        ctype.c.obj       0      257                0                 
@@ -107,7 +115,7 @@ MODULE SUMMARY
                                                                      
        Stack:            0      0                  1024              
     +--+-----------------+------+------------------+--------------------+
-       Grand Total:      2770   315                1035              
+       Grand Total:      3965   315                1035              
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -131,7 +139,39 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 page  address   name                            
 ----  -------   ----                            
 0     00008000  .text                           
-0     00008a4a  C$$EXIT                         
+0     00008ef5  C$$EXIT                         
+0     00008631  _ADC_disable                    
+0     00008641  _ADC_disableBandGap             
+0     00008651  _ADC_disableInt                 
+0     0000888f  _ADC_disableNoOverlapMode       
+0     00008670  _ADC_disableRefBuffers          
+0     00008903  _ADC_disableVoltRefLoConv       
+0     00008680  _ADC_enable                     
+0     00008690  _ADC_enableBandGap              
+0     000086a0  _ADC_enableInt                  
+0     0000887f  _ADC_enableNoOverlapMode        
+0     000086bf  _ADC_enableRefBuffers           
+0     000088f3  _ADC_enableVoltRefLoConv        
+0     00008855  _ADC_getDivideSelect            
+0     000086cf  _ADC_init                       
+0     000086de  _ADC_powerDown                  
+0     000086ee  _ADC_powerUp                    
+0     000086fe  _ADC_reset                      
+0     00008867  _ADC_setDivideSelect            
+0     00008729  _ADC_setIntMode                 
+0     00008754  _ADC_setIntPulseGenMode         
+0     0000876c  _ADC_setIntSrc                  
+0     000088e2  _ADC_setOffTrim                 
+0     00008797  _ADC_setSampleMode              
+0     0000870e  _ADC_setSampleOverlapMode       
+0     000087b5  _ADC_setSocChanNumber           
+0     00008800  _ADC_setSocFrc                  
+0     00008814  _ADC_setSocFrcWord              
+0     000087ce  _ADC_setSocSampleDelay          
+0     000087e7  _ADC_setSocTrigSrc              
+0     00008825  _ADC_setTempSensorSrc           
+0     0000883d  _ADC_setVoltRefSrc              
+0     0000889f  _ADC_setupSocTrigSrc            
 0     00008000  _CLK_disableAdcClock            
 0     0000800e  _CLK_disableClaClock            
 0     0000801c  _CLK_disableClkIn               
@@ -206,61 +246,93 @@ page  address   name
 0     000084d6  _GPIO_setQualification          
 0     00008565  _GPIO_setQualificationPeriod    
 0     000085ff  _GPIO_toggle                    
-0     00008651  _SCI_clearAutoBaudDetect        
-0     00008667  _SCI_clearRxFifoInt             
-0     0000865c  _SCI_clearRxFifoOvf             
-0     00008672  _SCI_clearTxFifoInt             
-0     0000867d  _SCI_disable                    
-0     00008685  _SCI_disableAutoBaudAlign       
-0     00008690  _SCI_disableLoopBack            
-0     00008698  _SCI_disableParity              
-0     000086a0  _SCI_disableRx                  
-0     000086a8  _SCI_disableRxErrorInt          
-0     000086b0  _SCI_disableRxFifoInt           
-0     000086bb  _SCI_disableRxInt               
-0     000086c3  _SCI_disableSleep               
-0     000086cb  _SCI_disableTx                  
-0     000086d3  _SCI_disableTxFifoEnh           
-0     000086de  _SCI_disableTxFifoInt           
-0     000086e9  _SCI_disableTxInt               
-0     000086f1  _SCI_disableTxWake              
-0     000086f9  _SCI_enable                     
-0     00008701  _SCI_enableAutoBaudAlign        
-0     0000870c  _SCI_enableChannels             
-0     00008717  _SCI_enableLoopBack             
-0     0000871f  _SCI_enableParity               
-0     00008727  _SCI_enableRx                   
-0     0000872f  _SCI_enableRxErrorInt           
-0     00008747  _SCI_enableRxFifo               
-0     00008752  _SCI_enableRxFifoInt            
-0     00008737  _SCI_enableRxInt                
-0     0000873f  _SCI_enableSleep                
-0     0000875d  _SCI_enableTx                   
-0     00008765  _SCI_enableTxFifo               
-0     00008770  _SCI_enableTxFifoEnh            
-0     0000877b  _SCI_enableTxFifoInt            
-0     00008786  _SCI_enableTxInt                
-0     0000878e  _SCI_enableTxWake               
-0     00008796  _SCI_getDataBlocking            
-0     000087a3  _SCI_getDataNonBlocking         
-0     000087b7  _SCI_getRxFifoStatus            
-0     000087c3  _SCI_getTxFifoStatus            
-0     000087cf  _SCI_init                       
-0     000087db  _SCI_putDataBlocking            
-0     000087ec  _SCI_putDataNonBlocking         
-0     000087ff  _SCI_reset                      
-0     00008807  _SCI_resetChannels              
-0     00008819  _SCI_resetRxFifo                
-0     0000882b  _SCI_resetTxFifo                
-0     0000883d  _SCI_setBaudRate                
-0     0000884b  _SCI_setCharLength              
-0     00008857  _SCI_setMode                    
-0     00008863  _SCI_setNumStopBits             
-0     0000887b  _SCI_setParity                  
-0     0000886f  _SCI_setPriority                
-0     00008898  _SCI_setRxFifoIntLevel          
-0     00008887  _SCI_setTxDelay                 
-0     000088a9  _SCI_setTxFifoIntLevel          
+0     00008ea2  _OSC_init                       
+0     00008eae  _OSC_setCoarseTrim              
+0     00008ec7  _OSC_setFineTrim                
+0     00008ee2  _OSC_setTrim                    
+0     00008c6f  _PLL_disable                    
+0     00008c7a  _PLL_disableClkDetect           
+0     00008c85  _PLL_disableNormRdy             
+0     00008c90  _PLL_disableOsc                 
+0     00008c9b  _PLL_enable                     
+0     00008ca6  _PLL_enableClkDetect            
+0     00008cb1  _PLL_enableNormRdy              
+0     00008cbc  _PLL_enableOsc                  
+0     00008cc7  _PLL_getClkFreq                 
+0     00008cd3  _PLL_getClkStatus               
+0     00008cdc  _PLL_getDivideSelect            
+0     00008ce5  _PLL_getLockStatus              
+0     00008cee  _PLL_init                       
+0     00008cfa  _PLL_resetClkDetect             
+0     00008d05  _PLL_setClkFreq                 
+0     00008d14  _PLL_setDivideSelect            
+0     00008d23  _PLL_setLockPeriod              
+0     00008933  _SCI_clearAutoBaudDetect        
+0     00008949  _SCI_clearRxFifoInt             
+0     0000893e  _SCI_clearRxFifoOvf             
+0     00008954  _SCI_clearTxFifoInt             
+0     0000895f  _SCI_disable                    
+0     00008967  _SCI_disableAutoBaudAlign       
+0     00008972  _SCI_disableLoopBack            
+0     0000897a  _SCI_disableParity              
+0     00008982  _SCI_disableRx                  
+0     0000898a  _SCI_disableRxErrorInt          
+0     00008992  _SCI_disableRxFifoInt           
+0     0000899d  _SCI_disableRxInt               
+0     000089a5  _SCI_disableSleep               
+0     000089ad  _SCI_disableTx                  
+0     000089b5  _SCI_disableTxFifoEnh           
+0     000089c0  _SCI_disableTxFifoInt           
+0     000089cb  _SCI_disableTxInt               
+0     000089d3  _SCI_disableTxWake              
+0     000089db  _SCI_enable                     
+0     000089e3  _SCI_enableAutoBaudAlign        
+0     000089ee  _SCI_enableChannels             
+0     000089f9  _SCI_enableLoopBack             
+0     00008a01  _SCI_enableParity               
+0     00008a09  _SCI_enableRx                   
+0     00008a11  _SCI_enableRxErrorInt           
+0     00008a29  _SCI_enableRxFifo               
+0     00008a34  _SCI_enableRxFifoInt            
+0     00008a19  _SCI_enableRxInt                
+0     00008a21  _SCI_enableSleep                
+0     00008a3f  _SCI_enableTx                   
+0     00008a47  _SCI_enableTxFifo               
+0     00008a52  _SCI_enableTxFifoEnh            
+0     00008a5d  _SCI_enableTxFifoInt            
+0     00008a68  _SCI_enableTxInt                
+0     00008a70  _SCI_enableTxWake               
+0     00008a78  _SCI_getDataBlocking            
+0     00008a85  _SCI_getDataNonBlocking         
+0     00008a99  _SCI_getRxFifoStatus            
+0     00008aa5  _SCI_getTxFifoStatus            
+0     00008ab1  _SCI_init                       
+0     00008abd  _SCI_putDataBlocking            
+0     00008ace  _SCI_putDataNonBlocking         
+0     00008ae1  _SCI_reset                      
+0     00008ae9  _SCI_resetChannels              
+0     00008afb  _SCI_resetRxFifo                
+0     00008b0d  _SCI_resetTxFifo                
+0     00008b1f  _SCI_setBaudRate                
+0     00008b2d  _SCI_setCharLength              
+0     00008b39  _SCI_setMode                    
+0     00008b45  _SCI_setNumStopBits             
+0     00008b5d  _SCI_setParity                  
+0     00008b51  _SCI_setPriority                
+0     00008b7a  _SCI_setRxFifoIntLevel          
+0     00008b69  _SCI_setTxDelay                 
+0     00008b8b  _SCI_setTxFifoIntLevel          
+0     00008dc1  _WDOG_clearCounter              
+0     00008dcf  _WDOG_disable                   
+0     00008ddf  _WDOG_disableInt                
+0     00008dea  _WDOG_disableOverRide           
+0     00008df5  _WDOG_enable                    
+0     00008e05  _WDOG_enableInt                 
+0     00008e10  _WDOG_enableOverRide            
+0     00008e1b  _WDOG_getIntStatus              
+0     00008e24  _WDOG_init                      
+0     00008e30  _WDOG_setCount                  
+0     00008e39  _WDOG_setPreScaler              
 1     00000800  __STACK_END                     
 abs   00000400  __STACK_SIZE                    
 1     0000a122  ___TI_cleanup_ptr               
@@ -272,31 +344,32 @@ abs   ffffffff  ___TI_prof_data_start
 abs   ffffffff  ___binit__                      
 abs   ffffffff  ___c_args__                     
 0     00000050  ___cinit__                      
-0     00008ad2  ___etext__                      
+0     00008f7d  ___etext__                      
 abs   ffffffff  ___pinit__                      
 0     00008000  ___text__                       
-0     00008ab4  __args_main                     
+0     00008f5f  __args_main                     
 1     0000a000  __ctypes_                       
 1     0000a126  __lock                          
-0     00008ace  __nop                           
-0     00008aca  __register_lock                 
-0     00008ac6  __register_unlock               
+0     00008f79  __nop                           
+0     00008f75  __register_lock                 
+0     00008f71  __register_unlock               
 1     00000400  __stack                         
-0     00008ad1  __system_post_cinit             
-0     00008acf  __system_pre_init               
+0     00008f7c  __system_post_cinit             
+0     00008f7a  __system_pre_init               
 1     0000a128  __unlock                        
-0     00008a4a  _abort                          
-0     000089f4  _c_int00                        
-0     00008a73  _copy_in                        
+0     00008ef5  _abort                          
+0     00008e4c  _c_int00                        
+0     00008f1e  _copy_in                        
 1     0000a12a  _errno                          
-0     00008a4c  _exit                           
-0     00008999  _main                           
-0     00008a97  _memcpy                         
-0     000089d2  _setupSciA                      
-0     000088ba  _strtol                         
+0     00008ef7  _exit                           
+0     00008d76  _initSysCtrl                    
+0     00008d3b  _main                           
+0     00008f42  _memcpy                         
+0     00008d9f  _setupSciA                      
+0     00008b9c  _strtol                         
 abs   ffffffff  binit                           
 0     00000050  cinit                           
-0     00008ad2  etext                           
+0     00008f7d  etext                           
 abs   ffffffff  pinit                           
 
 
@@ -382,78 +455,143 @@ page  address   name
 0     00008565  _GPIO_setQualificationPeriod    
 0     000085ff  _GPIO_toggle                    
 0     0000861f  _GPIO_lpmSelect                 
-0     00008651  _SCI_clearAutoBaudDetect        
-0     0000865c  _SCI_clearRxFifoOvf             
-0     00008667  _SCI_clearRxFifoInt             
-0     00008672  _SCI_clearTxFifoInt             
-0     0000867d  _SCI_disable                    
-0     00008685  _SCI_disableAutoBaudAlign       
-0     00008690  _SCI_disableLoopBack            
-0     00008698  _SCI_disableParity              
-0     000086a0  _SCI_disableRx                  
-0     000086a8  _SCI_disableRxErrorInt          
-0     000086b0  _SCI_disableRxFifoInt           
-0     000086bb  _SCI_disableRxInt               
-0     000086c3  _SCI_disableSleep               
-0     000086cb  _SCI_disableTx                  
-0     000086d3  _SCI_disableTxFifoEnh           
-0     000086de  _SCI_disableTxFifoInt           
-0     000086e9  _SCI_disableTxInt               
-0     000086f1  _SCI_disableTxWake              
-0     000086f9  _SCI_enable                     
-0     00008701  _SCI_enableAutoBaudAlign        
-0     0000870c  _SCI_enableChannels             
-0     00008717  _SCI_enableLoopBack             
-0     0000871f  _SCI_enableParity               
-0     00008727  _SCI_enableRx                   
-0     0000872f  _SCI_enableRxErrorInt           
-0     00008737  _SCI_enableRxInt                
-0     0000873f  _SCI_enableSleep                
-0     00008747  _SCI_enableRxFifo               
-0     00008752  _SCI_enableRxFifoInt            
-0     0000875d  _SCI_enableTx                   
-0     00008765  _SCI_enableTxFifo               
-0     00008770  _SCI_enableTxFifoEnh            
-0     0000877b  _SCI_enableTxFifoInt            
-0     00008786  _SCI_enableTxInt                
-0     0000878e  _SCI_enableTxWake               
-0     00008796  _SCI_getDataBlocking            
-0     000087a3  _SCI_getDataNonBlocking         
-0     000087b7  _SCI_getRxFifoStatus            
-0     000087c3  _SCI_getTxFifoStatus            
-0     000087cf  _SCI_init                       
-0     000087db  _SCI_putDataBlocking            
-0     000087ec  _SCI_putDataNonBlocking         
-0     000087ff  _SCI_reset                      
-0     00008807  _SCI_resetChannels              
-0     00008819  _SCI_resetRxFifo                
-0     0000882b  _SCI_resetTxFifo                
-0     0000883d  _SCI_setBaudRate                
-0     0000884b  _SCI_setCharLength              
-0     00008857  _SCI_setMode                    
-0     00008863  _SCI_setNumStopBits             
-0     0000886f  _SCI_setPriority                
-0     0000887b  _SCI_setParity                  
-0     00008887  _SCI_setTxDelay                 
-0     00008898  _SCI_setRxFifoIntLevel          
-0     000088a9  _SCI_setTxFifoIntLevel          
-0     000088ba  _strtol                         
-0     00008999  _main                           
-0     000089d2  _setupSciA                      
-0     000089f4  _c_int00                        
-0     00008a4a  C$$EXIT                         
-0     00008a4a  _abort                          
-0     00008a4c  _exit                           
-0     00008a73  _copy_in                        
-0     00008a97  _memcpy                         
-0     00008ab4  __args_main                     
-0     00008ac6  __register_unlock               
-0     00008aca  __register_lock                 
-0     00008ace  __nop                           
-0     00008acf  __system_pre_init               
-0     00008ad1  __system_post_cinit             
-0     00008ad2  ___etext__                      
-0     00008ad2  etext                           
+0     00008631  _ADC_disable                    
+0     00008641  _ADC_disableBandGap             
+0     00008651  _ADC_disableInt                 
+0     00008670  _ADC_disableRefBuffers          
+0     00008680  _ADC_enable                     
+0     00008690  _ADC_enableBandGap              
+0     000086a0  _ADC_enableInt                  
+0     000086bf  _ADC_enableRefBuffers           
+0     000086cf  _ADC_init                       
+0     000086de  _ADC_powerDown                  
+0     000086ee  _ADC_powerUp                    
+0     000086fe  _ADC_reset                      
+0     0000870e  _ADC_setSampleOverlapMode       
+0     00008729  _ADC_setIntMode                 
+0     00008754  _ADC_setIntPulseGenMode         
+0     0000876c  _ADC_setIntSrc                  
+0     00008797  _ADC_setSampleMode              
+0     000087b5  _ADC_setSocChanNumber           
+0     000087ce  _ADC_setSocSampleDelay          
+0     000087e7  _ADC_setSocTrigSrc              
+0     00008800  _ADC_setSocFrc                  
+0     00008814  _ADC_setSocFrcWord              
+0     00008825  _ADC_setTempSensorSrc           
+0     0000883d  _ADC_setVoltRefSrc              
+0     00008855  _ADC_getDivideSelect            
+0     00008867  _ADC_setDivideSelect            
+0     0000887f  _ADC_enableNoOverlapMode        
+0     0000888f  _ADC_disableNoOverlapMode       
+0     0000889f  _ADC_setupSocTrigSrc            
+0     000088e2  _ADC_setOffTrim                 
+0     000088f3  _ADC_enableVoltRefLoConv        
+0     00008903  _ADC_disableVoltRefLoConv       
+0     00008933  _SCI_clearAutoBaudDetect        
+0     0000893e  _SCI_clearRxFifoOvf             
+0     00008949  _SCI_clearRxFifoInt             
+0     00008954  _SCI_clearTxFifoInt             
+0     0000895f  _SCI_disable                    
+0     00008967  _SCI_disableAutoBaudAlign       
+0     00008972  _SCI_disableLoopBack            
+0     0000897a  _SCI_disableParity              
+0     00008982  _SCI_disableRx                  
+0     0000898a  _SCI_disableRxErrorInt          
+0     00008992  _SCI_disableRxFifoInt           
+0     0000899d  _SCI_disableRxInt               
+0     000089a5  _SCI_disableSleep               
+0     000089ad  _SCI_disableTx                  
+0     000089b5  _SCI_disableTxFifoEnh           
+0     000089c0  _SCI_disableTxFifoInt           
+0     000089cb  _SCI_disableTxInt               
+0     000089d3  _SCI_disableTxWake              
+0     000089db  _SCI_enable                     
+0     000089e3  _SCI_enableAutoBaudAlign        
+0     000089ee  _SCI_enableChannels             
+0     000089f9  _SCI_enableLoopBack             
+0     00008a01  _SCI_enableParity               
+0     00008a09  _SCI_enableRx                   
+0     00008a11  _SCI_enableRxErrorInt           
+0     00008a19  _SCI_enableRxInt                
+0     00008a21  _SCI_enableSleep                
+0     00008a29  _SCI_enableRxFifo               
+0     00008a34  _SCI_enableRxFifoInt            
+0     00008a3f  _SCI_enableTx                   
+0     00008a47  _SCI_enableTxFifo               
+0     00008a52  _SCI_enableTxFifoEnh            
+0     00008a5d  _SCI_enableTxFifoInt            
+0     00008a68  _SCI_enableTxInt                
+0     00008a70  _SCI_enableTxWake               
+0     00008a78  _SCI_getDataBlocking            
+0     00008a85  _SCI_getDataNonBlocking         
+0     00008a99  _SCI_getRxFifoStatus            
+0     00008aa5  _SCI_getTxFifoStatus            
+0     00008ab1  _SCI_init                       
+0     00008abd  _SCI_putDataBlocking            
+0     00008ace  _SCI_putDataNonBlocking         
+0     00008ae1  _SCI_reset                      
+0     00008ae9  _SCI_resetChannels              
+0     00008afb  _SCI_resetRxFifo                
+0     00008b0d  _SCI_resetTxFifo                
+0     00008b1f  _SCI_setBaudRate                
+0     00008b2d  _SCI_setCharLength              
+0     00008b39  _SCI_setMode                    
+0     00008b45  _SCI_setNumStopBits             
+0     00008b51  _SCI_setPriority                
+0     00008b5d  _SCI_setParity                  
+0     00008b69  _SCI_setTxDelay                 
+0     00008b7a  _SCI_setRxFifoIntLevel          
+0     00008b8b  _SCI_setTxFifoIntLevel          
+0     00008b9c  _strtol                         
+0     00008c6f  _PLL_disable                    
+0     00008c7a  _PLL_disableClkDetect           
+0     00008c85  _PLL_disableNormRdy             
+0     00008c90  _PLL_disableOsc                 
+0     00008c9b  _PLL_enable                     
+0     00008ca6  _PLL_enableClkDetect            
+0     00008cb1  _PLL_enableNormRdy              
+0     00008cbc  _PLL_enableOsc                  
+0     00008cc7  _PLL_getClkFreq                 
+0     00008cd3  _PLL_getClkStatus               
+0     00008cdc  _PLL_getDivideSelect            
+0     00008ce5  _PLL_getLockStatus              
+0     00008cee  _PLL_init                       
+0     00008cfa  _PLL_resetClkDetect             
+0     00008d05  _PLL_setClkFreq                 
+0     00008d14  _PLL_setDivideSelect            
+0     00008d23  _PLL_setLockPeriod              
+0     00008d3b  _main                           
+0     00008d76  _initSysCtrl                    
+0     00008d9f  _setupSciA                      
+0     00008dc1  _WDOG_clearCounter              
+0     00008dcf  _WDOG_disable                   
+0     00008ddf  _WDOG_disableInt                
+0     00008dea  _WDOG_disableOverRide           
+0     00008df5  _WDOG_enable                    
+0     00008e05  _WDOG_enableInt                 
+0     00008e10  _WDOG_enableOverRide            
+0     00008e1b  _WDOG_getIntStatus              
+0     00008e24  _WDOG_init                      
+0     00008e30  _WDOG_setCount                  
+0     00008e39  _WDOG_setPreScaler              
+0     00008e4c  _c_int00                        
+0     00008ea2  _OSC_init                       
+0     00008eae  _OSC_setCoarseTrim              
+0     00008ec7  _OSC_setFineTrim                
+0     00008ee2  _OSC_setTrim                    
+0     00008ef5  C$$EXIT                         
+0     00008ef5  _abort                          
+0     00008ef7  _exit                           
+0     00008f1e  _copy_in                        
+0     00008f42  _memcpy                         
+0     00008f5f  __args_main                     
+0     00008f71  __register_unlock               
+0     00008f75  __register_lock                 
+0     00008f79  __nop                           
+0     00008f7a  __system_pre_init               
+0     00008f7c  __system_post_cinit             
+0     00008f7d  ___etext__                      
+0     00008f7d  etext                           
 1     00000400  __stack                         
 1     00000800  __STACK_END                     
 1     0000a000  __ctypes_                       
@@ -473,4 +611,4 @@ abs   ffffffff  ___pinit__
 abs   ffffffff  binit                           
 abs   ffffffff  pinit                           
 
-[168 symbols]
+[233 symbols]

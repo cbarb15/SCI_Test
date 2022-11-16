@@ -9,39 +9,63 @@ CMD_SRCS += \
 ../28069_RAM_lnk.cmd 
 
 C_SRCS += \
+../adc.c \
 ../clk.c \
 ../gpio.c \
 ../main.c \
-../sci.c 
+../osc.c \
+../pll.c \
+../sci.c \
+../wdog.c 
 
 C_DEPS += \
+./adc.d \
 ./clk.d \
 ./gpio.d \
 ./main.d \
-./sci.d 
+./osc.d \
+./pll.d \
+./sci.d \
+./wdog.d 
 
 OBJS += \
+./adc.obj \
 ./clk.obj \
 ./gpio.obj \
 ./main.obj \
-./sci.obj 
+./osc.obj \
+./pll.obj \
+./sci.obj \
+./wdog.obj 
 
 OBJS__QUOTED += \
+"adc.obj" \
 "clk.obj" \
 "gpio.obj" \
 "main.obj" \
-"sci.obj" 
+"osc.obj" \
+"pll.obj" \
+"sci.obj" \
+"wdog.obj" 
 
 C_DEPS__QUOTED += \
+"adc.d" \
 "clk.d" \
 "gpio.d" \
 "main.d" \
-"sci.d" 
+"osc.d" \
+"pll.d" \
+"sci.d" \
+"wdog.d" 
 
 C_SRCS__QUOTED += \
+"../adc.c" \
 "../clk.c" \
 "../gpio.c" \
 "../main.c" \
-"../sci.c" 
+"../osc.c" \
+"../pll.c" \
+"../sci.c" \
+"../wdog.c" 
 
 

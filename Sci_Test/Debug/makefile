@@ -10,10 +10,14 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./adc.obj" \
 "./clk.obj" \
 "./gpio.obj" \
 "./main.obj" \
+"./osc.obj" \
+"./pll.obj" \
 "./sci.obj" \
+"./wdog.obj" \
 "../28069_RAM_lnk.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -157,8 +161,8 @@ Sci_Test.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "clk.obj" "gpio.obj" "main.obj" "sci.obj" 
-	-$(RM) "clk.d" "gpio.d" "main.d" "sci.d" 
+	-$(RM) "adc.obj" "clk.obj" "gpio.obj" "main.obj" "osc.obj" "pll.obj" "sci.obj" "wdog.obj" 
+	-$(RM) "adc.d" "clk.d" "gpio.d" "main.d" "osc.d" "pll.d" "sci.d" "wdog.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

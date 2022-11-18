@@ -41,10 +41,12 @@ int main(void)
 
     ret = strtol(str, &ptr, 10);
 
-    uint16_t number16 = 0xFFFF;
+//    uint16_t number16 = 0xFFFF;
 
     for(;;) {
-        SCI_write(sciAHandle, number16);
+
+        uint16_t rxData = SCI_read(sciAHandle);
+        SCI_write(sciAHandle, rxData);
     }
 }
 
@@ -81,7 +83,8 @@ void setupSciA(SCI_Handle sciAHandle) {
     SCI_disableParity(sciAHandle);
     SCI_setNumStopBits(sciAHandle,SCI_NumStopBits_One);
     SCI_setCharLength(sciAHandle,SCI_CharLength_8_Bits);
-    SCI_setBaudRate(sciAHandle,(SCI_BaudRate_e)(0x0061));
+//    SCI_setBaudRate(sciAHandle,(SCI_BaudRate_e)(0x0061));
+    SCI_setBaudRate(sciAHandle,SCI_BaudRate_9_6_kBaud);
     SCI_setPriority(sciAHandle,SCI_Priority_FreeRun);
 
     SCI_enable(sciAHandle);

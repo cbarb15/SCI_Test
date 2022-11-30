@@ -9,6 +9,8 @@
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+
 /**
  * main.c
  */
@@ -35,17 +37,16 @@ int main(void)
     GPIO_setMode(gpioHandle,GPIO_Number_28, GPIO_28_Mode_SCIRXDA);
     GPIO_setMode(gpioHandle,GPIO_Number_29,GPIO_29_Mode_SCITXDA);
 
-    char str[30] = "200300 This is test";
-    char *ptr;
-    long ret;
-
-    ret = strtol(str, &ptr, 10);
-
-//    uint16_t number16 = 0xFFFF;
+//    uint16_t letterZ = 0x5A;
+//    uint16_t letterH = 0x48;
 
     for(;;) {
 
+//        SCI_write(sciAHandle, letterZ);
         uint16_t rxData = SCI_read(sciAHandle);
+
+//        SCI_write(sciAHandle, letterH);
+//        rxData = SCI_read(sciAHandle);
         SCI_write(sciAHandle, rxData);
     }
 }
